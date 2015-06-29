@@ -9,6 +9,7 @@
   "author": "merrin",
   "license": "ISC",
   "dependencies": {
+    "pg": "4.x",
     "ejs": "^2.3.1",
     "express": "^4.13.0"
   }
