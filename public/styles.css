@@ -4,6 +4,7 @@ body {
 
 html, body, .container {
   height: 100%;
+  margin: 0;
 }
 
 .container {
@@ -22,4 +23,11 @@ html, body, .container {
 
 .advice h1 {
   margin: 0;
+}
+
+.share {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1em 2em;
 }
