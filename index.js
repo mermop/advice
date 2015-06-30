@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var moment = require('moment');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -49,6 +50,7 @@ app.get('/', function (request, response) {
     function calculate_days_left(unused) {
       runout_date = new Date();
       runout_date.setDate(runout_date.getDate() + unused); 
+      runout_date = moment(runout_date).format("dddd, MMMM Do YYYY")
     }
 
     client.query("SELECT * FROM advice_table WHERE use = 'in_use'", function(err, result) {
