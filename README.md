@@ -5,21 +5,16 @@ This is a tiny silly node thing.
 
 This is run through Heroku. If you want to do it yourself you can.
 
-You need a database!
+To run locally
+`foreman start web`
+To test the update locally
+`foreman start worker`
 
+## Heroku setup
 `heroku addons:create heroku-postgresql:hobby-dev`
 
 `heroku pg:psql`
 
-```
-CREATE TABLE advice_table (
-    id    SERIAL PRIMARY KEY,
-    advice  TEXT,
-    use   TEXT
-);
-```
+## Local setup
+`pg_restore --verbose --clean --no-acl --no-owner -h localhost -U merrin -d postgres latest.dump`
 
-To run locally
-`foreman start web`
-To test the update locally
-`node update.js`

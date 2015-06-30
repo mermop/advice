@@ -1,0 +1,15 @@
+body {
+  background-color: #EEEEEE;
+}
+.container {
+  max-width: 800px;
+  max-height: 5em;
+  margin: auto auto;
+  background-color: #FFFFFF;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
