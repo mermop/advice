@@ -1,22 +1,36 @@
 html
   head
-    title=results[0].advice
+    - if(results.length != 0) {
+      title=results[0].advice
+    - }
+    - else {
+      title advice for merrin
+    - }
     link(type="text/css" rel="stylesheet" href="styles.css")
     meta(name= "viewport" content= "width=device-width, initial-scale=1")
   body
     .container
       .advice
-        - results.forEach(function(r) {
-        h1= r.advice
-        - });
+        - if(results.length == 0) {
+          h1 write more advice
+        - }
+        - else
+          - results.forEach(function(r) {
+          h1= r.advice
+          - });
       .advices-count
         | daily advices for merrin. 
         span=used
         |  used. 
         span=unused
         |  remaining.
-        |  will run out: 
-        span=runout
+        - if(unused != 0){
+          |  will run out: 
+          span=runout
+        - }
+        - else {
+          |  goodbye.
+        - }
       .share
         a.twitter-share-button(href="https://twitter.com/intent/tweet" data-via="merxplat").
           Tweet
