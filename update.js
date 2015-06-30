@@ -8,8 +8,6 @@ pg.connect(connectionString, function(err, client, done) {
      { console.error(err); response.send("Error " + err); }
     else
      { 
-      backgroundColor = '#BADA55';
-      console.log(backgroundColor);
       return;
     }
   });

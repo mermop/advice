@@ -1,15 +1,18 @@
 body {
-  background-color: #EEEEEE;
+  background: linear-gradient(0deg, #E4DBB6, #D6F4FF);
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
+
+html, body {
+  height: 100%;
+}
+
 .container {
-  max-width: 800px;
-  max-height: 5em;
-  margin: auto auto;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 2rem;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+}
+.container h1 {
+  margin: 0;
 }
