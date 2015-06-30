@@ -27,7 +27,7 @@ html, body, .container {
 
 .share {
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
   padding: 1em 2em;
 }
@@ -37,4 +37,5 @@ html, body, .container {
   bottom: 0;
   left: 0;
   padding: 1em 2em;
+  font-size: 0.8em;
 }
