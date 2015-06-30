@@ -2,10 +2,13 @@
 <html>
 <head>
   <title>Advice</title>
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/styles.css">
 </head>
 <body>
-  <% results.forEach(function(r) { %>
-      <h1><%= r.advice %></h1>
-  <% }); %>
+  <div class="container">
+    <% results.forEach(function(r) { %>
+        <h1><%= r.advice %></h1>
+    <% }); %>
+  </div>
 </body>
 </html>

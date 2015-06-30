@@ -14,9 +14,13 @@ app.listen(app.get('port'), function() {
 });
 
 var pg = require('pg');
+var connectionString = process.env.DATABASE_URL || 'postgres://merrin:@localhost/postgres';
 
 app.get('/', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect(connectionString, function(err, client, done) {
+    if(err) {
+      return console.error('error fetching client from pool', err);
+    }
     client.query("SELECT * FROM advice_table WHERE use = 'in_use'", function(err, result) {
       done();
       if (err)
