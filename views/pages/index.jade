@@ -9,6 +9,14 @@ html
         - results.forEach(function(r) {
         h1= r.advice
         - });
+      .advices-count
+        | daily advices for merrin. 
+        span=used
+        |  used. 
+        span=unused
+        |  remaining.
+        |  will run out: 
+        span=runout.toLocaleDateString("en-US")
       .share
         a.twitter-share-button(href="https://twitter.com/intent/tweet" data-via="merxplat").
           Tweet
