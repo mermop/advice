@@ -5,6 +5,16 @@ body {
 html, body, .container {
   height: 100%;
   margin: 0;
+  width: 100%;
+}
+
+canvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
 }
 
 .container {

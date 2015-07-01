@@ -11,8 +11,10 @@
   "dependencies": {
     "express": "^4.13.0",
     "jade": "^1.11.0",
+    "jquery": "^2.1.4",
     "moment": "^2.10.3",
     "node-sass": "^3.2.0",
-    "pg": "4.x"
+    "pg": "4.x",
+    "webshot": "^0.16.0"
   }
 }
