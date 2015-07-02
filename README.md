@@ -104,8 +104,9 @@ So when you are in the psql terminal thing (you get to the heroku one with `hero
 `UPDATE advice_table SET use = 'unused' WHERE use = 'used'`
 
 ## Todo
-- Some kind of fonts
-- Some kind of shapes
+- Drawing working on mobile
+- Able to download the drawn image
 - Daily visual changes
+- Some kind of fonts
 - Make advice id not have to be manually defined? a serial?
 - Better setup instructions

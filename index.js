@@ -19,6 +19,9 @@ var connectionString = process.env.DATABASE_URL || 'postgres://merrin:@localhost
 var unused_advices;
 var used_advices;
 var runout_date;
+var background_colours = ['#EDC2B3', '#FFF4E3'];
+var brush_colour = '#122A86';
+var gradient_degrees = 39;
 
 app.get('/', function (request, response) {
   pg.connect(connectionString, function(err, client, done) {
@@ -59,7 +62,7 @@ app.get('/', function (request, response) {
        { console.error(err); response.send("Error " + err); }
       else
        { 
-        response.render('pages/index', {results: result.rows, used: used_advices, unused: unused_advices, runout: runout_date} ); 
+        response.render('pages/index', {results: result.rows, used: used_advices, unused: unused_advices, runout: runout_date, background_colours: background_colours, brush_colour: brush_colour, gradient_degrees: gradient_degrees} ); 
        }
     });
   });

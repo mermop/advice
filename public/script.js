@@ -5,9 +5,7 @@ $( document ).ready(function() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   drawStuff();
-  window.addEventListener('resize', resizeCanvas, false);
 
-  resizeCanvas();
   function drawStuff() {
 
     $('#canvas').mousedown(function(e){
@@ -49,10 +47,10 @@ $( document ).ready(function() {
     function redraw(){
       context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
       
-      context.strokeStyle = "#122A86";
+      context.strokeStyle = brush_colour;
       context.lineJoin = "round";
       context.lineWidth = 2;
-      context.globalAlpha = 0.2;
+      context.globalAlpha = 0.3;
           
       for(var i=0; i < clickX.length; i++) {    
         context.beginPath();
