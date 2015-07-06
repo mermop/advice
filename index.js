@@ -19,9 +19,9 @@ var connectionString = process.env.DATABASE_URL || 'postgres://merrin:@localhost
 var unused_advices;
 var used_advices;
 var runout_date;
-var background_colours = ['#B8A7DA', '#8C6873'];
-var brush_colour = 'rgb(0, 0, 0)';
-var gradient_degrees = 30;
+var background_colours = ['#572224', '#F5DA9E'];
+var brush_colour = 'rgb(140, 32, 32)';
+var gradient_degrees = 45;
 
 app.get('/', function (request, response) {
   pg.connect(connectionString, function(err, client, done) {
