@@ -19,7 +19,7 @@ var connectionString = process.env.DATABASE_URL || 'postgres://merrin:@localhost
 var unused_advices;
 var used_advices;
 var runout_date;
-var background_colours = ['#572224', '#F5DA9E'];
+var background_colours = ['#2492CF', '#866C9B'];
 var brush_colour = 'rgb(140, 32, 32)';
 var gradient_degrees = 45;
 
