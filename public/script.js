@@ -14,6 +14,12 @@ $( document ).ready(function() {
     var outputContext = outputCanvas.getContext("2d");
     outputContext.font = "bold 24pt Times";
 
+    var gradient = outputContext.createLinearGradient(0, 0, canvas.width, 0);
+    gradient.addColorStop(0, "#ECF9FF");
+    gradient.addColorStop(1, "#F5D9E5");
+    outputContext.fillStyle = gradient;
+    outputContext.fillRect(0, 0, canvas.width, canvas.height);
+
     var text = $(".advice").text();
     var textWidth = outputContext.measureText(text).width;
     var textHeight = 24;
