@@ -1,4 +1,13 @@
 $( document ).ready(function() {
+  var body = $("body");
+  var gd = {
+    degrees: parseFloat(body.data("gradient-degrees")),
+    start:   body.data("gradient-start"),
+    end:     body.data("gradient-end")
+  };
+
+  body.css("background", "linear-gradient(" + gd.degrees + "deg," + gd.start + "," + gd.end + ")");
+
   var canvas = document.getElementById('canvas'),
     context = canvas.getContext('2d');
   // resize the canvas to fill browser window dynamically
@@ -12,31 +21,50 @@ $( document ).ready(function() {
     outputCanvas.height = canvas.height;
 
     var outputContext = outputCanvas.getContext("2d");
-    outputContext.font = "bold 24pt Times";
 
-    var gradient = outputContext.createLinearGradient(0, 0, canvas.width, 0);
-    gradient.addColorStop(0, "#ECF9FF");
-    gradient.addColorStop(1, "#F5D9E5");
-    outputContext.fillStyle = gradient;
-    outputContext.fillRect(0, 0, canvas.width, canvas.height);
-
-    var text = $(".advice").text();
-    var textWidth = outputContext.measureText(text).width;
-    var textHeight = 24;
-    var boxWidth = textWidth + 64;
-    var boxHeight = textHeight + 64;
-
-    outputContext.fillStyle = "rgba(255, 255, 255, 0.5)"
-    outputContext.fillRect((canvas.width - boxWidth) / 2, (canvas.height - boxHeight) / 2, boxWidth, boxHeight);
-
-    outputContext.fillStyle = "black";
-    outputContext.fillText(text, (canvas.width - textWidth) / 2, (canvas.height - textHeight) / 2 + textHeight);
+    drawBackgroundGradient(outputContext);
+    drawAdviceTextAndContainer(outputContext, $(".advice").text());
 
     outputContext.drawImage(canvas, 0, 0);
 
     this.href = outputCanvas.toDataURL();
     this.download = "advice.png";
   });
+
+  function drawAdviceTextAndContainer(context, text) {
+    context.font = "bold 24pt Times";
+
+    var textWidth = context.measureText(text).width;
+    var textHeight = 24;
+    var boxWidth = textWidth + 64;
+    var boxHeight = textHeight + 64;
+
+    context.fillStyle = "rgba(255, 255, 255, 0.5)"
+    context.fillRect((canvas.width - boxWidth) / 2, (canvas.height - boxHeight) / 2, boxWidth, boxHeight);
+
+    context.fillStyle = "black";
+    context.fillText(text, (canvas.width - textWidth) / 2, (canvas.height - textHeight) / 2 + textHeight);
+  }
+
+  function drawBackgroundGradient(context) {
+    context.fillStyle = createLinearGradient(context);
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function createLinearGradient(context) {
+    var radians = gd.degrees * Math.PI / 180;
+    var length = (Math.abs(canvas.width * Math.sin(radians)) + Math.abs(canvas.height * Math.cos(radians))) / 2;
+    var x1 = Math.sin(radians + Math.PI) * length + canvas.width/2,
+        y1 = -Math.cos(radians + Math.PI) * length + canvas.height/2,
+        x2 = Math.sin(radians) * length + canvas.width/2,
+        y2 = -Math.cos(radians) * length + canvas.height/2;
+
+    var gradient = context.createLinearGradient(x1, y1, x2, y2);
+    gradient.addColorStop(0, gd.start);
+    gradient.addColorStop(1, gd.end);
+
+    return gradient;
+  }
 
   function drawStuff() {
 
