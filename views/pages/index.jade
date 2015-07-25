@@ -8,15 +8,7 @@ html
     - }
     link(type="text/css" rel="stylesheet" href="styles.css")
     meta(name= "viewport" content= "width=device-width, initial-scale=1")
-    style
-      | body {background: linear-gradient(
-      = gradient_degrees
-      |deg, 
-      = background_colours[0]
-      |, 
-      = background_colours[1]
-      | );}
-  body
+  body(data-gradient-degrees=gradient_degrees data-gradient-start=background_colours[0] data-gradient-end=background_colours[1])
     .container
       canvas#canvas
       .advice
@@ -43,6 +35,9 @@ html
       .share
         a.twitter-share-button(href="https://twitter.com/intent/tweet" data-via="adviceformerrin").
           Tweet
+        a(id="download" href="javascript:void(0)")
+          img(src="ic_file_download_black_18dp.png" alt="Download this advice with your drawing")
+
   //- twitter button and google analytics:
   script(src="jquery-1.11.2.min.js")
   script
