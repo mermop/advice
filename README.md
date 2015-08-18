@@ -52,7 +52,7 @@ Create a database
 
 'Yes, good. Now put things into it'
 
-`insert into advice_table values (1, 'an advice', use 'unused'), (2, 'another advice', use 'unused');`
+`insert into advice_table values (1, 'an advice', 'unused'), (2, 'another advice', 'unused');`
 
 'Goodbye'
 
