@@ -21,7 +21,7 @@ var used_advices;
 var runout_date;
 var background_colours = [];
 var brush_colour;
-var gradient_degrees = 0;
+var gradient_degrees = Math.floor(Math.random() * (180 - 0)) + 0;
 
 app.get('/', function (request, response) {
   pg.connect(connectionString, function(err, client, done) {
