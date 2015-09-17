@@ -19,8 +19,8 @@ var connectionString = process.env.DATABASE_URL || 'postgres://merrin:@localhost
 var unused_advices;
 var used_advices;
 var runout_date;
-var background_colours = ['rgb(255, 226, 195)', 'rgb(217, 228, 245)'];
-var brush_colour = 'rgb(100, 23, 30)';
+var background_colours = ['rgb(255, 245, 235)', 'rgb(215, 175, 155)'];
+var brush_colour = 'rgb(25, 50, 100)';
 var gradient_degrees = 0;
 
 app.get('/', function (request, response) {
@@ -34,7 +34,7 @@ app.get('/', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { 
+       {
         unused_advices = result.rowCount
         calculate_days_left(unused_advices)
        }
@@ -45,14 +45,14 @@ app.get('/', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { 
+       {
         used_advices = result.rowCount
        }
     });
 
     function calculate_days_left(unused) {
       runout_date = new Date();
-      runout_date.setDate(runout_date.getDate() + unused); 
+      runout_date.setDate(runout_date.getDate() + unused);
       runout_date = moment(runout_date).format("dddd, MMMM Do YYYY")
     }
 
@@ -61,8 +61,8 @@ app.get('/', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { 
-        response.render('pages/index', {results: result.rows, used: used_advices, unused: unused_advices, runout: runout_date, background_colours: background_colours, brush_colour: brush_colour, gradient_degrees: gradient_degrees} ); 
+       {
+        response.render('pages/index', {results: result.rows, used: used_advices, unused: unused_advices, runout: runout_date, background_colours: background_colours, brush_colour: brush_colour, gradient_degrees: gradient_degrees} );
        }
     });
   });
