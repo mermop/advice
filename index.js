@@ -19,8 +19,8 @@ var connectionString = process.env.DATABASE_URL || 'postgres://merrin:@localhost
 var unused_advices;
 var used_advices;
 var runout_date;
-var background_colours = ['rgb(255, 245, 235)', 'rgb(215, 175, 155)'];
-var brush_colour = 'rgb(25, 50, 100)';
+var background_colours = [];
+var brush_colour;
 var gradient_degrees = 0;
 
 app.get('/', function (request, response) {
@@ -28,6 +28,36 @@ app.get('/', function (request, response) {
     if(err) {
       return console.error('error fetching client from pool', err);
     }
+
+    client.query("SELECT colour FROM colour_table WHERE use = 'pen'", function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       {
+        brush_colour = result.rows[0].colour;
+       }
+    });
+
+    client.query("SELECT colour FROM colour_table WHERE use = 'first'", function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       {
+        background_colours.push(result.rows[0].colour);
+       }
+    });
+
+    client.query("SELECT colour FROM colour_table WHERE use = 'second'", function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       {
+        background_colours.push(result.rows[0].colour);
+       }
+    });
 
     client.query("SELECT use FROM advice_table WHERE use = 'unused'", function(err, result) {
       done();
