@@ -1,7 +1,7 @@
 # Advice for myself
 It is at http://advicefor.merr.in/
 
-This is a tiny silly node thing to give myself advice from the past. 
+This is a tiny silly node thing to give myself advice from the past.
 
 It is run through Heroku. If you want to do it yourself you can.
 
@@ -14,7 +14,7 @@ You will need:
 - Postgres - [through the command line](https://wiki.postgresql.org/wiki/Detailed_installation_guides) or [postgres.app](http://postgresapp.com/)
 - You may like to use the Github app for [Mac](https://mac.github.com/) or [Windows](https://windows.github.com/)
 
-Mostly [these instructions are almost exactly right](https://devcenter.heroku.com/articles/getting-started-with-nodejs#) but here are the core bits. 
+Mostly [these instructions are almost exactly right](https://devcenter.heroku.com/articles/getting-started-with-nodejs#) but here are the core bits.
 First of all, clone this thing onto your computer:
 
 `git clone git@github.com:mermop/advice.git`
@@ -48,7 +48,7 @@ Create a database
 
 'Database! Make me a table'
 
-`create table advice_table (id integer, advice text, use text);` 
+`create table advice_table (id integer, advice text, use text);`
 
 'Yes, good. Now put things into it'
 
@@ -72,9 +72,9 @@ with whatever is right for
 
 `postgres://username:password@localhost/postgres`
 
-for you. It kind of depends on your postgres setup I guess. IT'S VERY CONFUSING. I'M VERY CONFUSED BY IT. 
+for you. It kind of depends on your postgres setup I guess. IT'S VERY CONFUSING. I'M VERY CONFUSED BY IT.
 
-Anyway once you have that working you can follow [these instructions](https://devcenter.heroku.com/articles/heroku-postgres-import-export) to bring your heroku database into your local database. 
+Anyway once you have that working you can follow [these instructions](https://devcenter.heroku.com/articles/heroku-postgres-import-export) to bring your heroku database into your local database.
 
 To run locally
 
@@ -105,8 +105,7 @@ So when you are in the psql terminal thing (you get to the heroku one with `hero
 
 ## Todo
 - Drawing working on mobile
-- Able to download the drawn image
-- Daily visual changes
 - Some kind of fonts
 - Make advice id not have to be manually defined? a serial?
 - Better setup instructions
+- apparently the colours only reset if the server restarts
