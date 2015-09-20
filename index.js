@@ -28,7 +28,6 @@ app.get('/', function (request, response) {
     if(err) {
       return console.error('error fetching client from pool', err);
     }
-
     client.query("SELECT colour FROM colour_table WHERE use = 'pen'", function(err, result) {
       done();
       if (err)
