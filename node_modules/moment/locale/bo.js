@@ -1,12 +1,11 @@
 //! moment.js locale configuration
-//! locale : tibetan (bo)
-//! author : Thupten N. Chakrishar : https://github.com/vajradog
 
-(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['moment'], factory) :
+;(function (global, factory) {
+   typeof exports === 'object' && typeof module !== 'undefined'
+       && typeof require === 'function' ? factory(require('../moment')) :
+   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
-}(this, function (moment) { 'use strict';
+}(this, (function (moment) { 'use strict';
 
 
     var symbolMap = {
@@ -42,11 +41,11 @@
         weekdaysMin : 'ཉི་མ་_ཟླ་བ་_མིག་དམར་_ལྷག་པ་_ཕུར་བུ_པ་སངས་_སྤེན་པ་'.split('_'),
         longDateFormat : {
             LT : 'A h:mm',
-            LTS : 'LT:ss',
+            LTS : 'A h:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, A h:mm',
+            LLLL : 'dddd, D MMMM YYYY, A h:mm'
         },
         calendar : {
             sameDay : '[དི་རིང] LT',
@@ -60,6 +59,7 @@
             future : '%s ལ་',
             past : '%s སྔན་ལ',
             s : 'ལམ་སང',
+            ss : '%d སྐར་ཆ།',
             m : 'སྐར་མ་གཅིག',
             mm : '%d སྐར་མ',
             h : 'ཆུ་ཚོད་གཅིག',
@@ -82,8 +82,17 @@
             });
         },
         meridiemParse: /མཚན་མོ|ཞོགས་ཀས|ཉིན་གུང|དགོང་དག|མཚན་མོ/,
-        isPM: function (input) {
-            return /^(ཉིན་གུང|དགོང་དག|མཚན་མོ)$/.test(input);
+        meridiemHour : function (hour, meridiem) {
+            if (hour === 12) {
+                hour = 0;
+            }
+            if ((meridiem === 'མཚན་མོ' && hour >= 4) ||
+                    (meridiem === 'ཉིན་གུང' && hour < 5) ||
+                    meridiem === 'དགོང་དག') {
+                return hour + 12;
+            } else {
+                return hour;
+            }
         },
         meridiem : function (hour, minute, isLower) {
             if (hour < 4) {
@@ -106,4 +115,4 @@
 
     return bo;
 
-}));
+})));

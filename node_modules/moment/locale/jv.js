@@ -1,13 +1,11 @@
 //! moment.js locale configuration
-//! locale : Boso Jowo (jv)
-//! author : Rony Lantip : https://github.com/lantip
-//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
-(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['moment'], factory) :
+;(function (global, factory) {
+   typeof exports === 'object' && typeof module !== 'undefined'
+       && typeof require === 'function' ? factory(require('../moment')) :
+   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
-}(this, function (moment) { 'use strict';
+}(this, (function (moment) { 'use strict';
 
 
     var jv = moment.defineLocale('jv', {
@@ -18,11 +16,11 @@
         weekdaysMin : 'Mg_Sn_Sl_Rb_Km_Jm_Sp'.split('_'),
         longDateFormat : {
             LT : 'HH.mm',
-            LTS : 'LT.ss',
+            LTS : 'HH.mm.ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY [pukul] LT',
-            LLLL : 'dddd, D MMMM YYYY [pukul] LT'
+            LLL : 'D MMMM YYYY [pukul] HH.mm',
+            LLLL : 'dddd, D MMMM YYYY [pukul] HH.mm'
         },
         meridiemParse: /enjing|siyang|sonten|ndalu/,
         meridiemHour : function (hour, meridiem) {
@@ -60,6 +58,7 @@
             future : 'wonten ing %s',
             past : '%s ingkang kepengker',
             s : 'sawetawis detik',
+            ss : '%d detik',
             m : 'setunggal menit',
             mm : '%d menit',
             h : 'setunggal jam',
@@ -79,4 +78,4 @@
 
     return jv;
 
-}));
+})));

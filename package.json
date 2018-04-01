@@ -10,11 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.0",
-    "jade": "^1.11.0",
     "jquery": "^2.1.4",
     "moment": "^2.10.3",
-    "node-sass": "^3.2.0",
+    "node-sass": "4.7.2",
     "pg": "4.x",
+    "pug": "^2.0.3",
     "webshot": "^0.16.0"
   }
 }

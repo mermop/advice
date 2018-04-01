@@ -21,7 +21,7 @@ test: test-unit
 test-all: jshint test-missing-native test-unit test-integration test-native test-binary
 
 
-udpate-npm:
+update-npm:
 	@npm i npm --global
 
 bench:
@@ -41,8 +41,6 @@ test-connection-binary:
 test-missing-native:
 	@echo "***Testing optional native install***"
 	@rm -rf node_modules/pg-native
-	@node test/native/missing-native.js
-	@npm install pg-native@1.4.0
 	@node test/native/missing-native.js
 	@rm -rf node_modules/pg-native
 

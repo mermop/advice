@@ -1,12 +1,11 @@
 //! moment.js locale configuration
-//! locale : faroese (fo)
-//! author : Ragnar Johannesen : https://github.com/ragnar123
 
-(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['moment'], factory) :
+;(function (global, factory) {
+   typeof exports === 'object' && typeof module !== 'undefined'
+       && typeof require === 'function' ? factory(require('../moment')) :
+   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
-}(this, function (moment) { 'use strict';
+}(this, (function (moment) { 'use strict';
 
 
     var fo = moment.defineLocale('fo', {
@@ -17,11 +16,11 @@
         weekdaysMin : 'su_má_tý_mi_hó_fr_le'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D. MMMM, YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D. MMMM, YYYY HH:mm'
         },
         calendar : {
             sameDay : '[Í dag kl.] LT',
@@ -35,6 +34,7 @@
             future : 'um %s',
             past : '%s síðani',
             s : 'fá sekund',
+            ss : '%d sekundir',
             m : 'ein minutt',
             mm : '%d minuttir',
             h : 'ein tími',
@@ -46,7 +46,7 @@
             y : 'eitt ár',
             yy : '%d ár'
         },
-        ordinalParse: /\d{1,2}\./,
+        dayOfMonthOrdinalParse: /\d{1,2}\./,
         ordinal : '%d.',
         week : {
             dow : 1, // Monday is the first day of the week.
@@ -56,4 +56,4 @@
 
     return fo;
 
-}));
+})));
