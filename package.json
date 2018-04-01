@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "advice for myself",
   "main": "index.js",
+  "repository": "https://github.com/mermop/advice",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.0",
-    "jquery": "^2.1.4",
+    "jquery": "^3.0.0",
     "moment": "^2.10.3",
     "node-sass": "4.7.2",
     "pg": "4.x",
